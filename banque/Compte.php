@@ -15,6 +15,10 @@
         public function getCode(){
             return $this->code;
         }
+        public function __toString(){
+            $solde=$this->solde ?? 0;
+            return $solde." MAD";
+        }
     }
 
 
