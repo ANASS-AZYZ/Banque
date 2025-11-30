@@ -1,9 +1,9 @@
 <?php
 
 class Compte{
-    private $solde;
-    private $code;
-    private static $dernierCode = 0;
+    protected $solde;
+    protected $code;
+    protected static $dernierCode = 0;
 
     public function __construct($solde=null){
         $this->code = static::$dernierCode++;
@@ -18,6 +18,13 @@ class Compte{
     public function __toString(){
         $solde=$this->solde ?? 0;
         return $solde." MAD";
-        
+    }
+    
+    public function deposer($argent){
+        $this->solde += $argent;
+    }
+
+    public function retirer($argent){
+        $this->solde -= $argent;
     }
 }
